@@ -1,0 +1,9 @@
+prompt=Buscar:
+width=30%
+height=40%
+location=center
+show=drun
+allow_images=true
+term=alacritty
+insensitive=true
+allow_markup=true
