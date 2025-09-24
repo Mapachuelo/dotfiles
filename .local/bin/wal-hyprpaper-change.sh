@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-WALLPAPERS="/home/mapachuelo/.config/wallpaper/"   # <- cambia a tu carpeta
+WALLPAPERS="$HOME/.config/wallpaper/"   # <- cambia a tu carpeta
 # BUSCA IMAGEN
 IMG=$(find "$WALLPAPERS" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) | shuf -n1)
 
