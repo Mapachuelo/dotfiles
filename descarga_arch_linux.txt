@@ -1,0 +1,243 @@
+//-----------------//----Habilitar repositorio multilib----//-----------------//
+
+#Habilitar repositorio multilib para arch linux
+sudo vim /etc/pacman.conf
+
+#Habilitar 
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+
+#Para ver animación de descarga en la terminal
+ILoveCandy
+
+
+
+//---------------//----Paquetes de intel arc-------//----------------//
+
+#Descarga de paquetes de intel arc en arch linux, hay veces que falta para que aplicaciones funcionen optimamente
+sudo pacman -S libvdpau-va-gl intel-media-driver mesa gstreamer-vaapi vpl-gpu-rt vulkan-intel lib32-mesa lib32-vulkan-intel libva libva-utils intel-compute-runtime intel-gmmlib intel-gpu-tools vulkan-tools mesa-utils clinfo libvpl level-zero-loader level-zero-headers ocl-icd lib32-ocl-icd linux-firmware-intel fwupd vulkan-icd-loader lib32-vulkan-icd-loader
+
+
+
+//------------//----Paquetes multimedia----//--------------//
+
+#Paquetes multimedia en arch linux
+sudo pacman -S ffmpeg gstreamer gst-libav gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugins-base aom dav1d rav1e svt-av1 x264 x265 
+
+
+//-------------//----Paquetes de compatibilidad de entornos graficos----//-------------------//
+
+
+#descargar seccion Xwayland para que funcione juegos que solo tiene compatibilidad de ello
+sudo pacman -S xorg-xwayland xorg-xeyes xorg-xlsclients
+
+
+
+//---------------//----Colocar prioridad iniciar con fish en la terminal----//----------------//
+
+#colocar prioridad fish 
+sudo pacman -S fish
+which fish
+echo /usr/bin/fish | sudo tee -a /etc/shells
+chsh -s /usr/bin/fish
+
+
+
+//-------------//------Paquetes para hyprland----//------------------//
+
+#paquetes para wallpaper o fondos de pantalla para hyprland 
+sudo pacman -S hyprpaper
+
+
+#captura de pantalla para hyprland
+sudo pacman -S grim slurp wl-clipboard swappy
+
+
+#para configuración de audio
+sudo pacman -S pavucontrol
+
+
+#paquetes y script para que dolphin reconozca aplicaciones en hyprland
+sudo pacman -S archlinux-xdg-menu
+XDG_MENU_PREFIX=arch- kbuildsycoca6
+
+#configuración de pantalla 
+sudo pacman -S nwg-displays
+
+#temas de colores total en todo el sistema
+paru -S python-pywal16
+
+
+//-------------//----Paquetes de kde plasma----//----------------------//
+
+#paquetes para descarga kde plasma
+sudo pacman -S plasma-desktop plasma-nm plasma-pa kscreen kde-gtk-config breeze breeze-gtk breeze-icons gnome-themes-extra
+
+
+#desabilitar mensaje de encriptar de kde plasma
+
+nano ~/.config/kwalletrc
+Enabled=false
+
+
+
+//--------------//-------Paquetes de aplicaciones que quiero tener--------//------------------//
+
+#paquete para descargar yay o paru, para utilizar repositorios de la comunidad
+sudo pacman -S base-devel git 
+
+
+#paquetes para vlc 
+sudo pacman -S vlc-plugins-all vlc 
+
+
+#paquetes para obs studio 
+sudo pacman -S obs-studio 
+
+
+#paquetes de fuentes para waybar
+sudo pacman -S nerd-fonts ttf-font-awesome noto-fonts-emoji playerctl
+
+
+#visualizador de imagenes para kde plasma,hyprland y imagenes de videos con dolphine
+sudo pacman -S gwenview ffmpegthumbs
+
+
+#aplicación para ver mí celular en la pc y kdconnect para compartir archivos de celular a pc
+sudo pacman -S scrcpy android-tools kdeconnect
+
+
+#aplicaciónes para descomprimir archivos .zip y .rar
+sudo pacman -S ark unrar
+
+
+#paquetes para que nvim copie y pegue texto que copie dentro de nvim
+sudo pacman -S xclip xsel
+
+
+#paquetes todo en uno
+sudo pacman -S mangohud lib32-mangohud gamemode gamescope steam noto-fonts-cjk goverlay libreoffice-fresh libreoffice-fresh-es krita fastfetch prismlauncher ntfs-3g gparted reaper
+
+
+
+#plugin de nvim 
+git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+
+
+
+//-------------//----Aplicaciones y instalación de flatpak----//---------------------//
+
+#descargar flatpak
+
+sudo pacman -S flatpak
+flatpak install flathub com.microsoft.Edge
+flatpak install flathub com.spotify.Client
+flatpak install flathub com.discordapp.Discord
+flatpak install flathub com.usebottles.bottles
+flatpak install flathub com.heroicgameslauncher.hgl
+flatpak install flathub net.rpcs3.RPCS3
+flatpak install flathub net.pcsx2.PCSX2
+flatpak install flathub com.github.unrud.VideoDownloader
+flatpak install flathub net.shadps4.shadPS4
+flatpak install flathub com.github.tchx84.Flatseal
+flatpak install flathub com.rtosta.zapzap
+flatpak install flathub it.mijorus.gearlever
+flatpak install flathub org.mozilla.Thunderbird
+flatpak install flathub io.gitlab.theevilskeleton.Upscaler
+flatpak install flathub io.gitlab.gregorni.Letterpress
+
+mangohud -rama 23.08 para heroic games
+
+
+
+//----------//----Configuración para counter strike 2 ----//------------------//
+
+#configuración mangohud en juegos para counter strike 2 en 4:3
+gamemoderun gamescope mangohud -W 1920 -H 1080 -w 1280 -h 960 -S stretch -f -r 165 --immediate-flips --adaptive-sync --force-grab-cursor -- %command% -vulkan
+
+
+
+//------------//----Hacer funciones en la terminal con fish----//-----------------//
+
+#agregar una aplicación y colocarle un nombre a esa para ejecutar un archivo, por ejemplo microsoft edge mediante flatpak, ya que en kitty se necesita funciones y es lo siguiente
+function edge
+    flatpak run com.microsoft.Edge $argv
+end
+
+
+#Explicación:
+#function edge → defines el comando edge
+#flatpak run com.microsoft.Edge $argv → pasa todos los argumentos que escribas después de edge
+#end → cierra la función
+
+#guardar preferencia de la funcion en kitty, obligatorio para guardar la función, primero funcsave y después en nombre de la función
+funcsave edge
+
+
+
+//------------//----Tener Onedrive en arch linux----//--------------------//
+
+#descargar onedrive
+
+paru -S onedrive-abraunegg
+onedrive --synchronize
+systemctl --user enable onedrive
+systemctl --user start onedrive
+
+
+
+//-------------//----Paquetes necesarios para davinci resolve----//----------------------//
+
+#Arreglar conflicto de carpetas de davinci resolve
+
+cd /opt/resolve/libs
+sudo mkdir disabled-libraries
+sudo mv libglib* disabled-libraries
+sudo mv libgio* disabled-libraries
+sudo mv libgmodule* disabled-libraries
+
+
+
+//--------------//----Hacer dual boot----//-------------------------//
+
+#hacer dual boot
+
+sudo pacman -S os-prober
+sudo vim /etc/default/grub
+GRUB_DISABLE_OS_PROBER=false
+sudo os-prober
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+grep "menuentry " /boot/grub/grub.cfg
+sudo nano /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+
+
+//------------//----Agregar discos externos para arch linux----//------------------//
+
+#montar discos diferentes y no tener contraseña para que abran con el sistema
+
+lsblk -f
+sudo blkid
+
+#copia de seguridad 
+
+sudo cp /etc/fstab /etc/fstab.bak
+
+#editar
+
+sudo vim /etc/fstab
+UUID=TU-UUID-AQUI  /mnt/midisco  ext4  defaults,noatime  0 2
+UUID=TU-UUID-AQUI /mnt/midisco ntfs-3 gdefaults,uid=1000,gid=1000,dmask=022,fmask=133  0 0
+UUID=AE2496562496217F  /run/media/mapachuelo/T500\040crucial  ntfs3   defaults,uid=1000,gid=1000,dmask=022,fmask=133,exec,force   0   0
+
+#force es para forzar el uso del disco, cuidado, repare que el disco reconozca ntfs3 y debe ser mediante windows, en mí caso no me deja porque apague forzado el computador, pero si es por otrocaso es mejor no utilizarlo
+
+#prueba sin reiniciar
+
+sudo mount -a 
+ls /mnt/midisco
+
+AE2496562496217F 
+
+#no tener espacios al colocar nombre del disco, rompe todo el sistema de linux

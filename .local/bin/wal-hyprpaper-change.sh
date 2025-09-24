@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#cfdisk /dev/sda!/usr/bin/env bash
 # wal-hyprpaper-change.sh
 # Selecciona un fondo aleatorio, lo pre-load en hyprpaper, lo aplica por monitor y ejecuta pywal.
 # Ajusta WALLPAPERS y la ruta de kitty si hace falta.
 
 set -euo pipefail
 
-WALLPAPERS="/home/mapachuelo/OneDrive/Pictures/Wallpaper/"   # <- cambia a tu carpeta
+WALLPAPERS="/home/mapachuelo/.config/wallpaper/"   # <- cambia a tu carpeta
 # BUSCA IMAGEN
 IMG=$(find "$WALLPAPERS" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) | shuf -n1)
 
