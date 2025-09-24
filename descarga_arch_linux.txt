@@ -68,6 +68,10 @@ sudo pacman -S nwg-displays
 paru -S python-pywal16
 
 
+#paquetes de fuentes para waybar
+sudo pacman -S nerd-fonts ttf-font-awesome noto-fonts-emoji playerctl
+
+
 //-------------//----Paquetes de kde plasma----//----------------------//
 
 #paquetes para descarga kde plasma
@@ -93,10 +97,6 @@ sudo pacman -S vlc-plugins-all vlc
 
 #paquetes para obs studio 
 sudo pacman -S obs-studio 
-
-
-#paquetes de fuentes para waybar
-sudo pacman -S nerd-fonts ttf-font-awesome noto-fonts-emoji playerctl
 
 
 #visualizador de imagenes para kde plasma,hyprland y imagenes de videos con dolphine
